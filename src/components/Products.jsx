@@ -27,7 +27,7 @@ export default function Products() {
                     <ProductCard key={item.id} item={item} />
                 ))}
             </div>
-            <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex}/>
+            <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex} startIndex={startIndex}/>
         </>
 
     );
