@@ -10,6 +10,8 @@ export default function Products() {
 
     const lastProductIndex = startIndex * displayProduct
     const firstProductIndex = lastProductIndex - displayProduct
+    // console.log("lastProductIndex",lastProductIndex)
+    // console.log("firstProductIndex",firstProductIndex)
 
     const visibleProducts = products.slice(firstProductIndex, lastProductIndex)
 
