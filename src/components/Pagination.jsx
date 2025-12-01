@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 
-const Pagination = ({totalproducts,productperpage}) => {
+const Pagination = ({totalproducts,productperpage,setStartIndex}) => {
+    console.log("totalproducts",totalproducts)
+    console.log("productperpage",productperpage)
    let pages = []
 
-   console.log(pages)
+   
 
-   for (let i = 1; i <= Math.ceil(totalproducts/productperpage) ;i++){
+   for (let i = 1; i <= Math.ceil(totalproducts /productperpage) ;i++){
     pages.push(i)
    }
+   console.log(pages)
   return (
-    <div>
+    <div className='flex justify-center items-center gap-5'>
         {pages.map((page,index)=>{
-            return <button key={index}> {page}</button>
+            return <button key={index} onClick={()=>setStartIndex(page)}> {page}</button>
         })}
     </div>
   )

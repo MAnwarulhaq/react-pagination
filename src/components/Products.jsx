@@ -3,29 +3,32 @@ import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-  const [displayProduct,setDisplayProduct] = useState(5)
-  const [startIndex,setStartIndex] = useState(1)
+    const [products, setProducts] = useState([]);
+    const [displayProduct, setDisplayProduct] = useState(5)
+    const [startIndex, setStartIndex] = useState(1)
 
-  
-  const lastProductIndex = startIndex * displayProduct
-const  firstProductIndex  =lastProductIndex - displayProduct
 
-const visibleProducts = products.slice(firstProductIndex,lastProductIndex)
-  
+    const lastProductIndex = startIndex * displayProduct
+    const firstProductIndex = lastProductIndex - displayProduct
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then(res => res.json())
-      .then(data => setProducts(data.products));
-  }, []);
+    const visibleProducts = products.slice(firstProductIndex, lastProductIndex)
 
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-5">
-      {visibleProducts.map((item) => (
-        <ProductCard key={item.id} item={item} />
-      ))}
-      <Pagination totalproducts={products} productperpage={displayProduct}/>
-    </div>
-  );
+
+    useEffect(() => {
+        fetch("https://dummyjson.com/products")
+            .then(res => res.json())
+            .then(data => setProducts(data.products));
+    }, []);
+
+    return (
+        <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-5">
+                {visibleProducts.map((item) => (
+                    <ProductCard key={item.id} item={item} />
+                ))}
+            </div>
+            <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex}/>
+        </>
+
+    );
 }
