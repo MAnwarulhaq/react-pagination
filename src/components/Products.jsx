@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import Pagination from "./Pagination";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [displayProduct,setDisplayProduct] = useState(5)
-  const [startIndex,setStartIndex] = useState(2)
+  const [startIndex,setStartIndex] = useState(1)
 
   
   const lastProductIndex = startIndex * displayProduct
@@ -24,6 +25,7 @@ const visibleProducts = products.slice(firstProductIndex,lastProductIndex)
       {visibleProducts.map((item) => (
         <ProductCard key={item.id} item={item} />
       ))}
+      <Pagination totalproducts={products} productperpage={displayProduct}/>
     </div>
   );
 }
