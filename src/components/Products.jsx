@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
+import axios from "axios";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -16,9 +17,24 @@ export default function Products() {
     const visibleProducts = products.slice(firstProductIndex, lastProductIndex)
 
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     axios
+    //         .get("https://dummyjson.com/products")
+    //         .then((res) => {
+    //             console.log("API Response:", res.data);
+    //             setProducts(res.data.products);
+    //         })
+    //         .catch((err) => {
+    //             console.log("Error:", err);
+    //         });
+    // }, []);
+
+      useEffect(() => {
         fetch("https://dummyjson.com/products")
-            .then(res => res.json())
+            .then(res =>(
+                // console.log(res,"res"),
+                res.json()
+             ) )
             .then(data => setProducts(data.products));
     }, []);
 
@@ -29,7 +45,7 @@ export default function Products() {
                     <ProductCard key={item.id} item={item} />
                 ))}
             </div>
-            <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex} startIndex={startIndex}/>
+            <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex} startIndex={startIndex} />
         </>
 
     );
