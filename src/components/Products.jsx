@@ -49,7 +49,7 @@ export default function Products() {
                 
             </div> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-5">
-                {products.map((item) => (
+                {visibleProducts.map((item) => (
                     item.rating >= 4
                         ? <HOCProduct key={item.id} item={item} />
                         : <ProductCard key={item.id} item={item} />
@@ -57,7 +57,7 @@ export default function Products() {
             </div>
 
 
-            {/* <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex} startIndex={startIndex} /> */}
+            <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex} startIndex={startIndex} />
         </>
 
     );

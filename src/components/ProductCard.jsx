@@ -63,8 +63,8 @@ export default ProductCard;
  export const HOC = (ProductCard)=>{
   return (props)=>{
     return(
-      <div>
-        <span>Trending Item</span>
+      <div  className="relative">
+        <span className="absolute top-2 left-2 px-3  py-1 rounded-md bg-green-500 text-white">Trending Item</span>
         <ProductCard {...props}/>
       </div>
     )
