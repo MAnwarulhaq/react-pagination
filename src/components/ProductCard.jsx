@@ -58,3 +58,22 @@ const ProductCard = ({ item }) => {
 };
 
 export default ProductCard;
+
+   
+ export const HOC = (ProductCard)=>{
+  return (props)=>{
+    return(
+      <div>
+        <span>Trending Item</span>
+        <ProductCard {...props}/>
+      </div>
+    )
+  }
+}
+
+
+
+// const HOCProduct = HOC(ProductCard)
+
+
+
