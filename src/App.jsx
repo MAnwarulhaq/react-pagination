@@ -14,10 +14,10 @@ const [open ,setOpen ] = useState(false)
     <>
     <Suspense fallback={<h1>....Loading</h1>}>
     <h1 className='text-white text-2xl bg-indigo-600'>React Pagination</h1>
-    <button onClick={()=>setOpen(!open)}>click me</button>
-    {
+    {/* <button onClick={()=>setOpen(!open)}>click me</button> */}
+    {/* {
       open && <About/>
-    }
+    } */}
     
     <Products/>
     </Suspense>

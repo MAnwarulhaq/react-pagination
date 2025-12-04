@@ -1,4 +1,4 @@
-import { useEffect, useState,memo} from "react";
+import { useEffect, useState, memo } from "react";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
 import axios from "axios";
@@ -6,7 +6,7 @@ import { HOC } from "./ProductCard";
 
 
 
- function Products() {
+function Products() {
     const [products, setProducts] = useState([]);
     const [displayProduct, setDisplayProduct] = useState(5)
     const [startIndex, setStartIndex] = useState(1)
@@ -32,7 +32,7 @@ import { HOC } from "./ProductCard";
                 console.log("Error:", err);
             });
     }, []);
-        console.log("products")
+    console.log("products")
     // useEffect(() => {
     //     fetch("https://dummyjson.com/products")
     //         .then(res => (
@@ -50,7 +50,7 @@ import { HOC } from "./ProductCard";
                 ))}
                 
             </div> */}
-         
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-5">
                 {visibleProducts.map((item) => (
                     item.rating >= 4
@@ -61,10 +61,10 @@ import { HOC } from "./ProductCard";
 
 
             <Pagination totalproducts={products.length} productperpage={displayProduct} setStartIndex={setStartIndex} startIndex={startIndex} />
-       
+
         </>
 
     );
 }
 
-export default  memo( Products)
+export default memo(Products)
